@@ -1,20 +1,35 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import FotosRojo from './components/fotosRojo';
+import FotosAzul from './components/fotosAzul';
+
+
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+
+  }
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container">
+      <div className="container title">
+      <div className="col-md-8">
+      <h>Flickr Rainbow</h>
+      <br></br>
+      <p>By Laura Castro</p>
       </div>
-    );
+      </div>
+      <br></br>
+      <div className="container">
+      <div className="form-group">
+      <input type="query" className="form-control"></input>
+      </div>
+      </div>
+      </div>
+      );
   }
 }
 
