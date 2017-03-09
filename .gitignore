@@ -1,0 +1,10 @@
+/node_modules
+/data
+/build
+/server/api_key.txt
+/server/api_secret.txt
+npm-debug.log
+
+# IntelliJ
+*.iml
+/.idea
