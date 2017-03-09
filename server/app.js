@@ -54,7 +54,8 @@ app.get('/flickr/:query', function (req, res) {
 		  flickr.photos.search({
 		  	safe:1,
 		  	sort:"relevance",
-		  	text:req.params["query"]
+		  	text:req.params["query"],
+		  	per_page:2
 		  }, (err, data) => {
 		  	if (err) res.send(err);
 		  	console.log("Got flickr data sending it");
@@ -72,6 +73,5 @@ app.get('/flickr/:query', function (req, res) {
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
-
 
 module.exports = app;
