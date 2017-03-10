@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import FotosRojo from './components/fotosRojo';
-import FotosAzul from './components/fotosAzul';
+import axios from 'axios'
+const URL="http://localhost:9000/flickr/";
+import FotosColor from './components/fotosColor';
 
 class App extends Component {
 
   constructor(props){
     super(props);
+
+    this.state = {
+      busqueda:'',
+      colors:["red","orange", "yellow", "green", "blue","indigo", "violet" ],
+      fotosColor:[]
+    }
 
   }
   render() {
@@ -30,14 +36,32 @@ class App extends Component {
       <div className="row">
       <div className="col-md-4">
       <div className="form-group">
-      <input type="query" className="form-control"></input>
+      <input type="query" className="form-control" busqueda={this.state.busqueda} onChange={this.obtenerTexto}></input>
       </div>
+      <button type="button" className="btn btn-info" onClick={this.obtenerFotosColor.bind(this)}>Search</button>
+      <FotosAzul fotosAzul={this.state.fotosAzul}/>
       </div>
       </div>
       </div>
       </div>
       );
   }
+
+
+obtenerFotosAzules(color){
+     axios.get(URL+ this.state.busqueda +",blue")
+      .then(response => {
+        this.setState({
+          fotosAzul: response.data.photos.photo
+        })
+      });
+  }
+
+obtenerTexto(event){
+  this.setState({
+    busqueda:event.target.value
+  });
+}
 }
 
 export default App;
