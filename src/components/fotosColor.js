@@ -1,7 +1,7 @@
 'use strict';
 import React, { Component } from 'react';
 import Foto from './foto'
-export default class FotosAzul extends Component {
+export default class FotosColor extends Component {
   constructor(props){
 
     super(props);

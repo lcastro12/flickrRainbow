@@ -6,7 +6,7 @@ import FotosColor from './components/fotosColor';
 
 class App extends Component {
 
-  constructor(props){
+ constructor(props){
     super(props);
 
     this.state = {
@@ -14,6 +14,7 @@ class App extends Component {
       colors:["red","orange", "yellow", "green", "blue","indigo", "violet" ],
       fotosColor:[]
     }
+    this.obtenerTexto = this.obtenerTexto.bind(this);
 
   }
   render() {
@@ -38,8 +39,8 @@ class App extends Component {
       <div className="form-group">
       <input type="query" className="form-control" busqueda={this.state.busqueda} onChange={this.obtenerTexto}></input>
       </div>
-      <button type="button" className="btn btn-info" onClick={this.obtenerFotosColor.bind(this)}>Search</button>
-      <FotosAzul fotosAzul={this.state.fotosAzul}/>
+      <button type="button" className="btn btn-info" onClick={() =>{this.obtenerFotosColor.bind(this)}}>Search</button>
+      <FotosColor fotosColor={this.state.fotosColor}/>
       </div>
       </div>
       </div>
@@ -48,11 +49,11 @@ class App extends Component {
   }
 
 
-obtenerFotosAzules(color){
+obtenerFotosColor(){
      axios.get(URL+ this.state.busqueda +",blue")
       .then(response => {
         this.setState({
-          fotosAzul: response.data.photos.photo
+          fotosColor: response.data.photos.photo
         })
       });
   }
