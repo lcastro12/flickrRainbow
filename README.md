@@ -8,3 +8,10 @@ Para poder ejecutar el proyecto, se deben realizar los siguientes pasos:
 5. Y finalmente node server
 
 Luego de haber ejecutado correctamente los pasos, puedes ver la página en http://localhost:9000/
+
+# Herramientas utilizadas
+
+1. Node.js 
+2. React.js
+3. Flickr API
+
